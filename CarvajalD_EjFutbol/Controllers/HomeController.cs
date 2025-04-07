@@ -6,6 +6,7 @@ namespace CarvajalD_EjFutbol.Controllers
 {
     public class HomeController : Controller
     {
+        /*Comentario de verificación de Git*/
         private readonly ILogger<HomeController> _logger;
 
         public HomeController(ILogger<HomeController> logger)
