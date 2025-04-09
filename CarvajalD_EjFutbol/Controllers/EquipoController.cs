@@ -1,4 +1,5 @@
 ﻿using CarvajalD_EjFutbol.Models;
+using CarvajalD_EjFutbol.Repositories;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -13,19 +14,11 @@ namespace CarvajalD_EjFutbol.Controllers
 
         public ActionResult List()
         {
-            List<Equipo> equipos = new List<Equipo>();
-
-            Equipo ldu = new Equipo
-            {
-                Id = 1,
-                Nombre = "Liga de Quito",
-                PartidosJugados = 10,
-                PartidosEmpatados = 0,
-                PartidosGanados = 10,
-                PartidosPerdidos = 0
-            }; 
-            equipos.Add(ldu);
-            return View(equipos);  
+            EquipoRepository repository = new EquipoRepository();
+            var equipos = repository.DevuelveListadoEquipos();
+            equipos = equipos.OrderBy(item => item.PartidosGanados);
+            equipos = equipos.Where(item => item.Nombre == "Nacional"); 
+            return View(equipos);
         }
     }
 }
