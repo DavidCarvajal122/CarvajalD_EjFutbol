@@ -14,6 +14,17 @@ namespace CarvajalD_EjFutbol.Controllers
         public ActionResult List()
         {
             List<Equipo> equipos = new List<Equipo>();
+
+            Equipo ldu = new Equipo
+            {
+                Id = 1,
+                Nombre = "Liga de Quito",
+                PartidosJugados = 10,
+                PartidosEmpatados = 0,
+                PartidosGanados = 10,
+                PartidosPerdidos = 0
+            }; 
+            equipos.Add(ldu);
             return View(equipos);  
         }
     }
