@@ -1,0 +1,34 @@
+[
+  {
+    "Id": 1,
+    "Nombre": "Liga de Quito",
+    "PartidosJugados": 10,
+    "PartidosGanados": 8,
+    "PartidosPerdidos": 2,
+    "PartidosEmpatados": 0
+  },
+  {
+    "Id": 2,
+    "Nombre": "Barcelona",
+    "PartidosJugados": 9,
+    "PartidosGanados": 6,
+    "PartidosPerdidos": 3,
+    "PartidosEmpatados": 0
+  },
+  {
+    "Id": 3,
+    "Nombre": "El Nacional",
+    "PartidosJugados": 10,
+    "PartidosGanados": 8,
+    "PartidosPerdidos": 0,
+    "PartidosEmpatados": 2
+  },
+  {
+    "Id": 4,
+    "Nombre": "Independiente del Valle",
+    "PartidosJugados": 10,
+    "PartidosGanados": 6,
+    "PartidosPerdidos": 2,
+    "PartidosEmpatados": 2
+  }
+]

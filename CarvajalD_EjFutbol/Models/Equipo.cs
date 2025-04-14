@@ -6,7 +6,7 @@ namespace CarvajalD_EjFutbol.Models
     public class Equipo
     {
         [Key]
-        public int Id { get; set; } // Estructura de atributo 
+        public int Id { get; set; } 
         [Required]
         [MaxLength(100)]
         [DisplayName("Nombre del Equipo")]

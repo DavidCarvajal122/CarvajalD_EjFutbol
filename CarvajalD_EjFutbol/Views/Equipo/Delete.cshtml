@@ -1,0 +1,39 @@
+﻿@model CarvajalD_EjFutbol.Models.Equipo
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Eliminar Equipo</h1>
+
+<h3>¿Estás seguro que deseas eliminar este equipo?</h3>
+<div>
+    <h4>Equipo</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">ID</dt>
+        <dd class="col-sm-10">@Model.Id</dd>
+
+        <dt class="col-sm-2">Nombre</dt>
+        <dd class="col-sm-10">@Model.Nombre</dd>
+
+        <dt class="col-sm-2">Partidos Jugados</dt>
+        <dd class="col-sm-10">@Model.PartidosJugados</dd>
+
+        <dt class="col-sm-2">Ganados</dt>
+        <dd class="col-sm-10">@Model.PartidosGanados</dd>
+
+        <dt class="col-sm-2">Empatados</dt>
+        <dd class="col-sm-10">@Model.PartidosEmpatados</dd>
+
+        <dt class="col-sm-2">Perdidos</dt>
+        <dd class="col-sm-10">@Model.PartidosPerdidos</dd>
+    </dl>
+
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Eliminar" class="btn btn-danger" />
+        <a asp-action="List" class="btn btn-secondary">Cancelar</a>
+    </form>
+</div>
+

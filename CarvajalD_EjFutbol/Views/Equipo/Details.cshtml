@@ -1,0 +1,20 @@
+﻿@model CarvajalD_EjFutbol.Models.Equipo
+
+@{
+    ViewData["Title"] = "Detalles del Equipo";
+}
+
+<h1>@Model.Nombre</h1>
+
+<div>
+    <h3>Detalles del Equipo</h3>
+    <p><strong>Partidos Jugados:</strong> @Model.PartidosJugados</p>
+    <p><strong>Partidos Ganados:</strong> @Model.PartidosGanados</p>
+    <p><strong>Partidos Perdidos:</strong> @Model.PartidosPerdidos</p>
+    <p><strong>Partidos Empatados:</strong> @Model.PartidosEmpatados</p>
+    <p><strong>Puntos Totales:</strong> @(Model.PartidosGanados * 3 + Model.PartidosEmpatados)</p> <!-- Calcula los puntos -->
+
+    <div>
+        <a href="@Url.Action("List", "Equipo")" class="btn btn-secondary">Volver a la Lista</a>
+    </div>
+</div>
