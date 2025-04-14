@@ -17,8 +17,20 @@ namespace CarvajalD_EjFutbol.Controllers
             EquipoRepository repository = new EquipoRepository();
             var equipos = repository.DevuelveListadoEquipos();
             equipos = equipos.OrderBy(item => item.PartidosGanados);
-            equipos = equipos.Where(item => item.Nombre == "Nacional"); 
+            //equipos = equipos.Where(item => item.Nombre == "Nacional"); 
             return View(equipos);
+        }
+
+        public ActionResult Create ()
+        {
+            return View();  
+        }
+
+        public ActionResult Edit(int Id)
+        {
+            EquipoRepository repository = new EquipoRepository();
+            var equipo = repository.DevuelveEquipoPorID(Id);
+            return View(equipo);
         }
     }
 }

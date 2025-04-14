@@ -19,7 +19,7 @@ namespace CarvajalD_EjFutbol.Repositories
             };
             Equipo nacional = new Equipo
             {
-                Id = 1,
+                Id = 2,
                 Nombre = "Nacional",
                 PartidosJugados = 10,
                 PartidosEmpatados = 3,
@@ -29,6 +29,13 @@ namespace CarvajalD_EjFutbol.Repositories
             equipos.Add(ldu);
             equipos.Add(nacional);
             return equipos;
+        }
+
+        public Equipo DevuelveEquipoPorID(int Id)
+        {
+            var equipos = DevuelveListadoEquipos();
+            var equipo = equipos.First(item=> item.Id == Id);
+            return equipo; 
         }
     }
 }
