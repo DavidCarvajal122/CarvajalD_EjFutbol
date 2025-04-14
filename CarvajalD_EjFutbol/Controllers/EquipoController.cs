@@ -7,6 +7,12 @@ namespace CarvajalD_EjFutbol.Controllers
 {
     public class EquipoController : Controller
     {
+        public EquipoRepository _repository;
+
+        public EquipoController()
+        {
+            _repository = new EquipoRepository()    ;
+        }
         public ActionResult View()
         {
             return View();
@@ -14,8 +20,7 @@ namespace CarvajalD_EjFutbol.Controllers
 
         public ActionResult List()
         {
-            EquipoRepository repository = new EquipoRepository();
-            var equipos = repository.DevuelveListadoEquipos();
+            var equipos = _repository.DevuelveListadoEquipos();
             equipos = equipos.OrderBy(item => item.PartidosGanados);
             //equipos = equipos.Where(item => item.Nombre == "Nacional"); 
             return View(equipos);
@@ -28,9 +33,25 @@ namespace CarvajalD_EjFutbol.Controllers
 
         public ActionResult Edit(int Id)
         {
-            EquipoRepository repository = new EquipoRepository();
-            var equipo = repository.DevuelveEquipoPorID(Id);
+            var equipo = _repository.DevuelveEquipoPorID(Id);
             return View(equipo);
+        }
+
+        [HttpPost]
+        public ActionResult Edit(int Id, Equipo equipo)
+        {
+            
+            try
+            {
+                
+                //Proceso Guardar
+                _repository.ActualizarEquipo(Id, equipo);
+                return RedirectToAction(nameof(List));
+            }
+            catch 
+            { 
+                return View();
+            }
         }
     }
 }
