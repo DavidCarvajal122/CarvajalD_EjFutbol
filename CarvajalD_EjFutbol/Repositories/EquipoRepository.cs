@@ -4,15 +4,7 @@ namespace CarvajalD_EjFutbol.Repositories
 {
     public class EquipoRepository
     {
-        public IEnumerable<Equipo> Equipos;
-
-        public EquipoRepository()
-        {
-            Equipos = DevuelveListadoEquipos();
-        }
-
-
-        public void InicializarEquipos()
+        public IEnumerable<Equipo> DevuelveListadoEquipos()
         {
             List<Equipo> equipos = new List<Equipo>();
 
@@ -25,7 +17,6 @@ namespace CarvajalD_EjFutbol.Repositories
                 PartidosEmpatados = 0,
                 PartidosPerdidos = 0
             };
-
             Equipo barcelona = new Equipo
             {
                 Id = 2,
@@ -37,35 +28,24 @@ namespace CarvajalD_EjFutbol.Repositories
             };
             equipos.Add(ldu);
             equipos.Add(barcelona);
-
-            Equipos = equipos;
+            return equipos;
         }
 
-        public IEnumerable<Equipo> DevuelveListadoEquipos()
-        {
-            return Equipos;
-        }
-
-        public Equipo DevuelveEquipoPorID(int Id)
-        {
-            var equipo = Equipos.First(item => item.Id == Id);
+        public Equipo DevuelveEquipoPorID(int Id) {
+            var equipos = DevuelveListadoEquipos();
+            var equipo = equipos.First(item => item.Id == Id);
 
             return equipo;
         }
-
-
-        public bool CrearEquipo(Equipo equipo)
-        {
-            Equipos.ToList().Add(equipo);
-
-            return true;
-        }
-
+        
+        
         public bool ActualizarEquipo(int Id, Equipo equipo)
         {
             //Logica de actualizacion
 
             return true;
         }
-    }
+    } 
 }
+
+
